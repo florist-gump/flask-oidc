@@ -442,7 +442,7 @@ class OpenIDConnect(object):
 
             # refresh and store credentials
             try:
-                credentials.refresh(httplib2.Http())
+                credentials.refresh(httplib2.Http(disable_ssl_certificate_validation=True))
                 if credentials.id_token:
                     id_token = credentials.id_token
                 else:
